@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
+  m_Name: placeholder
+  m_EditorClassIdentifier: 
+  video:
+  - mainClip: {fileID: 32900000, guid: 9cfd357f65beb344c90b9ac76e713146, type: 3}
+    choices:
+    - ChoiceText: Test your brakes?
+      ChoiceClips: 1
+    - ChoiceText: "Keep going. The gates aren\u2019t down and you\u2019ll have more
+        than enough time to stop. "
+      ChoiceClips: 2
+  - mainClip: {fileID: 32900000, guid: da5333a9a67e73f46ab0fe680214fdf8, type: 3}
+    choices:
+    - ChoiceText: "Apply your emergency brake? It\u2019s not an emergency \u2013 why
+        would you? "
+      ChoiceClips: 3
+  - mainClip: {fileID: 32900000, guid: 89dafbf68bcf7e94d8611c410787d5b1, type: 3}
+    choices:
+    - ChoiceText: "See what could have happened if you\u2019d made a different choice"
+      ChoiceClips: 1
+  - mainClip: {fileID: 32900000, guid: ddcd2ac7bd6c92b44bc526373976759d, type: 3}
+    choices:
+    - ChoiceText: back to begening
+      ChoiceClips: 0
