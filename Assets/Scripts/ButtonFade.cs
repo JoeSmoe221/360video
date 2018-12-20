@@ -15,9 +15,12 @@ public class ButtonFade : MonoBehaviour {
     public void SetAlpha(float a)
     {
         alpha = a;
-
-        text.color = new Color(text.color.r, text.color.g, text.color.b,alpha);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(0, buttonAlpha,alpha));
+        if(text!= null && image != null)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(0, buttonAlpha, alpha));
+        }
+       
     }
 	// Use this for initialization
 	void Start () {

@@ -1205,9 +1205,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043104684}
+  - component: {fileID: 1043104686}
   - component: {fileID: 1043104683}
   - component: {fileID: 1043104685}
-  - component: {fileID: 1043104686}
   m_Layer: 0
   m_Name: videoPlayer
   m_TagString: Untagged
@@ -1371,7 +1371,7 @@ MonoBehaviour:
     type: 2}
   videoData:
   - {fileID: 11400000, guid: 5282050ebc058284a81525ce0b768a33, type: 2}
-  - {fileID: 11400000, guid: 47b2c21291abd264b9dfeb2f31a6a75c, type: 2}
+  - {fileID: 11400000, guid: becc042dba814d54dbd945048ff4b505, type: 2}
   FadeTime: 1
   GrayoutTime: 1
   OnVideoDoneEvent:

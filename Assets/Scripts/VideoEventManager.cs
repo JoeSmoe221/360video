@@ -63,6 +63,11 @@ public class VideoEventManager : MonoBehaviour {
 
         });
     }
+    /// <summary>
+    /// prepares the video player call backs
+    /// 
+    /// </summary>
+    /// <param name="v"></param>
     public void StartVideo(VideoData v)
     {
         currentVideoData = v;
@@ -124,6 +129,7 @@ public class VideoEventManager : MonoBehaviour {
                 if(c.ChoiceClips == -1)
                 {
                     ShowMainMenu();
+                    StartCoroutine(HideOverlay(GrayoutTime)); 
                 }
              
                 else
