@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
+  m_Name: scenario 2 dec 19
+  m_EditorClassIdentifier: 
+  video:
+  - mainClip: {fileID: 32900000, guid: 37d05069bf86d5144ab146f1b24c26e2, type: 3}
+    choices:
+    - ChoiceText: "Keep going. Trains don\u2019t run at this time of night anyway"
+      ChoiceClips: 1
+    - ChoiceText: Slow down and reduce distractions.
+      ChoiceClips: 2
+  - mainClip: {fileID: 32900000, guid: 37d05069bf86d5144ab146f1b24c26e2, type: 3}
+    choices:
+    - ChoiceText: "See what could have happened if you\u2019d made a\r\ndifferent
+        choice:"
+      ChoiceClips: 2
+    - ChoiceText: main menu
+      ChoiceClips: -1
+  - mainClip: {fileID: 32900000, guid: 37d05069bf86d5144ab146f1b24c26e2, type: 3}
+    choices:
+    - ChoiceText: "See what could have happened if you\u2019d made a\r\ndifferent
+        choice:"
+      ChoiceClips: 1
+    - ChoiceText: main menu
+      ChoiceClips: -1

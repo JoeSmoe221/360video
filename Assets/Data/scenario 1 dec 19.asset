@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
+  m_Name: scenario 1 dec 19
+  m_EditorClassIdentifier: 
+  video:
+  - mainClip: {fileID: 32900000, guid: 398da1d2e2bd2dc40b2558713d88191a, type: 3}
+    choices:
+    - ChoiceText: Proceed through the crossing?
+      ChoiceClips: 1
+    - ChoiceText: Or wait behind the gate?
+      ChoiceClips: 2
+  - mainClip: {fileID: 32900000, guid: 9a2a5e9dcd6e28e458af4e6cb90af171, type: 3}
+    choices:
+    - ChoiceText: Try to reverse off the tracks?
+      ChoiceClips: 3
+    - ChoiceText: Drive forward and smash through the gate?
+      ChoiceClips: 4
+    - ChoiceText: Get out of the vehicle and run?
+      ChoiceClips: 5
+  - mainClip: {fileID: 32900000, guid: f403925b623844f4fac8a84f62c9bd2e, type: 3}
+    choices:
+    - ChoiceText: "See what could have happened if you\u2019d made a different choice"
+      ChoiceClips: 0
+    - ChoiceText: main menu
+      ChoiceClips: -1
+  - mainClip: {fileID: 32900000, guid: e3573fe448285474998840d16944b865, type: 3}
+    choices:
+    - ChoiceText: "See what could have happened if you\u2019d made a different choice"
+      ChoiceClips: 0
+    - ChoiceText: main menu
+      ChoiceClips: -1
+  - mainClip: {fileID: 32900000, guid: 9634079fee87cd14584bd3bc7547d082, type: 3}
+    choices:
+    - ChoiceText: "a better choice\r would have been to not have moved into the crossing
+        in the first place"
+      ChoiceClips: 0
+    - ChoiceText: main menu
+      ChoiceClips: -1
+  - mainClip: {fileID: 32900000, guid: 4442a3fad5b05c6478287019d1d9f8bc, type: 3}
+    choices:
+    - ChoiceText: "the better choice would have been to not have moved into the\r
+        crossing in the first place"
+      ChoiceClips: 0
+    - ChoiceText: main menu
+      ChoiceClips: -1
