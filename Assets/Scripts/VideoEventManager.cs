@@ -25,6 +25,8 @@ public class VideoEventManager : MonoBehaviour {
     public float FadeTime = 1;
     public float GrayoutTime = 1;
 
+    public enum mode { mobile, Pc}
+    public mode currentMode;
     // Use this for initialization
     public UnityEvent OnVideoDoneEvent;
 	void Start () {
@@ -43,6 +45,10 @@ public class VideoEventManager : MonoBehaviour {
             Text t = button.GetComponentInChildren<Text>();
             t.text = v.name;
             button.GetComponent<ButtonFade>().SetAlpha(1);
+            if (currentMode == mode.Pc)
+            {
+                button.GetComponent<ButtonGaze>().enabled = false;
+            }
             // Debug.Log(i);
             button.onClick.AddListener(delegate
             {
@@ -55,6 +61,10 @@ public class VideoEventManager : MonoBehaviour {
         Text tt = button2.GetComponentInChildren<Text>();
         tt.text = "quit";
         button2.GetComponent<ButtonFade>().SetAlpha(1);
+        if (currentMode == mode.Pc)
+        {
+            button2.GetComponent<ButtonGaze>().enabled = false;
+        }
         // Debug.Log(i);
         button2.onClick.AddListener(delegate
         {
@@ -123,6 +133,11 @@ public class VideoEventManager : MonoBehaviour {
             Text t = button.GetComponentInChildren<Text>();
             t.text = c.ChoiceText;
             button.GetComponent<ButtonFade>().SetAlpha(0);
+
+            if(currentMode == mode.Pc)
+            {
+                button.GetComponent<ButtonGaze>().enabled = false;
+            }
            // Debug.Log(i);
             button.onClick.AddListener(delegate 
             {

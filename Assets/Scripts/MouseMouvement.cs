@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseMouvement : MonoBehaviour {
+public class MouseMouvement : MonoBehaviour
+{
     public float XSensitivity = 2f;
     public float YSensitivity = 2f;
     public bool clampVerticalRotation = true;
@@ -11,6 +12,8 @@ public class MouseMouvement : MonoBehaviour {
     public bool smooth;
     public float smoothTime = 5f;
     public bool lockCursor = true;
+    public bool ClickDrag = true;
+
     // Use this for initialization
     private Quaternion m_CharacterTargetRot;
     private Quaternion m_CameraTargetRot;
@@ -27,15 +30,21 @@ public class MouseMouvement : MonoBehaviour {
     }
     public void Update()
     {
-        LookRotation( this.transform, Camera.main.transform);
+        if (ClickDrag == false || Input.GetMouseButton(0))
+            LookRotation( this.transform, Camera.main.transform);
     }
     public void LookRotation(Transform character, Transform camera)
     {
         if (Time.timeScale != 0)
         {
+           
             float yRot = Input.GetAxis("Mouse X") * XSensitivity;
             float xRot = Input.GetAxis("Mouse Y") * YSensitivity;
-
+            if (ClickDrag)
+            {
+                yRot *= -1;
+                xRot *= -1;
+            }
             m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
 
