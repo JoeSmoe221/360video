@@ -10,8 +10,10 @@ public class VideoEventManager : MonoBehaviour {
 [SerializeField]
     private Transform camera;
     [SerializeField]
-
     private Transform menu;
+
+    [SerializeField]
+    private Text MessageField;
 
     [SerializeField]
     private Transform ButtonPrefab;
@@ -32,7 +34,8 @@ public class VideoEventManager : MonoBehaviour {
 	void Start () {
         videoPlayer = GameObject.FindObjectOfType<VideoPlayer>();
         buttonHolder = GameObject.FindObjectOfType<ButtonHolder>().transform;
-
+        MessageField.transform.parent.gameObject.SetActive(false);
+        MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
         ShowMainMenu();
 
     }
@@ -90,6 +93,8 @@ public class VideoEventManager : MonoBehaviour {
         videoPlayer.playOnAwake = false;
         videoPlayer.Play();
         prepareMenu();
+
+    
     }
     public void OnDisable()
     {
@@ -141,7 +146,11 @@ public class VideoEventManager : MonoBehaviour {
            // Debug.Log(i);
             button.onClick.AddListener(delegate 
             {
-                if(c.ChoiceClips == -1)
+                currentMessageIndex = 0;
+                MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+
+                MessageField.transform.parent.gameObject.SetActive(false);
+                if (c.ChoiceClips == -1)
                 {
                     ShowMainMenu();
                     StartCoroutine(HideOverlay(GrayoutTime)); 
@@ -229,7 +238,9 @@ public class VideoEventManager : MonoBehaviour {
     public void SetVideo(VideoData.Video video)
     {
         currentVideo = video;
+        
     }
+        
     public void Play()
     {
         StartCoroutine(SwitchVideoClip());
@@ -292,8 +303,79 @@ public class VideoEventManager : MonoBehaviour {
         videoPlayer.clip = clip;
         videoPlayer.Play();
     }
+
+    public int currentMessageIndex = 0;
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+      //  Debug.Log(videoPlayer.time);
+      
+
+        if (currentVideo != null && currentVideo.Message.messages.Length > 0 && currentMessageIndex < currentVideo.Message.messages.Length)
+        {
+            
+            if(videoPlayer.time > videoPlayer.clip.length - GetMessageDurationAfterIndex(currentMessageIndex))
+            {
+                if (MessageField.color.a  != 1 )
+                {
+                    MessageField.transform.parent.GetComponent<ButtonFade>().justText = false;
+                    MessageField.transform.parent.gameObject.SetActive(true);
+                    menu.rotation = Quaternion.Euler(0, camera.rotation.eulerAngles.y, 0);
+
+                }
+                else
+                {
+                    MessageField.transform.parent.GetComponent<ButtonFade>().justText = true;
+
+                }
+                StartCoroutine(FadeInMessageBox(GrayoutTime));
+
+                // Debug.Log("dopio");
+                MessageField.text = currentVideo.Message.messages[currentMessageIndex].MessageText;
+                //if(currentMessageIndex + 1 < currentVideo.Message.messages.Length)
+                    currentMessageIndex++;
+                
+            }
+        }
+        else
+        {
+         //   MessageField.transform.parent.gameObject.SetActive(false);
+
+        }
+
+    }
+    public IEnumerator FadeInMessageBox(float time = 1)
+    {
+        float elapsedTime = 0;
+        float Saturation = 0;
+
+        ButtonFade fade = MessageField.transform.parent.GetComponent<ButtonFade>();
+        Debug.Log(fade);
+        while (elapsedTime < time)
+        {
+            Saturation = (elapsedTime / time);
+            //foreach (ButtonFade f in fades)
+          //  {
+              //  Debug.Log("solo");
+                fade.SetAlpha(Saturation);
+           // }
+
+            elapsedTime += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+
+        }
+        fade.SetAlpha(1);
+
+    }
+    public float GetMessageDurationAfterIndex(int Index)
+    {
+        float durationFromCurrentIndex = 0f;
+        for (int i = currentMessageIndex; i < currentVideo.Message.messages.Length; i++)
+        {
+            durationFromCurrentIndex += currentVideo.Message.messages[i].timeOnScreen;
+        }
+
+        return durationFromCurrentIndex;
+    }
 }

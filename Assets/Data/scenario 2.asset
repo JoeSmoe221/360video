@@ -12,23 +12,53 @@ MonoBehaviour:
   m_Name: scenario 2
   m_EditorClassIdentifier: 
   video:
-  - mainClip: {fileID: 32900000, guid: 62279bc1d1434fc4b95d2a13a9086215, type: 3}
+  - Message:
+      messages:
+      - MessageText: "Was that a sign? \r"
+        timeOnScreen: 3
+    mainClip: {fileID: 32900000, guid: 6d731b365daea3b409a5696863daf3e0, type: 3}
     choices:
-    - ChoiceText: "Keep going. Trains don\u2019t run at this time of night anyway"
+    - ChoiceText: "Keep going \u2013trains never run at this time of day.\r"
       ChoiceClips: 1
     - ChoiceText: Slow down and reduce distractions.
       ChoiceClips: 2
-  - mainClip: {fileID: 32900000, guid: 296bf5e82b88b0647bf6402458664ac0, type: 3}
+  - Message:
+      messages:
+      - MessageText: "A deadly choice. You assumed that trains run on a set schedule
+          \u2014 you were dead wrong."
+        timeOnScreen: 3
+      - MessageText: ' You were also distracted by your passengers and the music in
+          your vehicle. Plus you were driving too fast at night and in bad weather.'
+        timeOnScreen: 3
+      - MessageText: "See what could have happened if you\u2019d made a different
+          choice\r\n"
+        timeOnScreen: 3
+    mainClip: {fileID: 32900000, guid: cd8212f64b35dd6459f11e97b559900f, type: 3}
     choices:
-    - ChoiceText: "See what could have happened if you\u2019d made a\r\ndifferent
-        choice:"
-      ChoiceClips: 2
-    - ChoiceText: main menu
+    - ChoiceText: "Click here to see what could have happened if you\u2019d made a
+        different choice"
+      ChoiceClips: 0
+    - ChoiceText: Click Here to start Experience again
       ChoiceClips: -1
-  - mainClip: {fileID: 32900000, guid: 52dd8193af3874c4abd66926a130f53a, type: 3}
+  - Message:
+      messages:
+      - MessageText: "Smart move. You can\u2019t always see or hear a train coming
+          \u2014 especially at night, in poor weather conditions, and when you\u2019re
+          approaching rail crossings without flashing lights, bells and gates."
+        timeOnScreen: 3
+      - MessageText: "When you\u2019re behind the wheel, always keep an eye out for
+          yellow advanced warning signs telling you that a crossing is ahead. Remember
+          that trains don\u2019t run on a set schedule \u2014 they can come at any
+          time. "
+        timeOnScreen: 3
+      - MessageText: "When you\u2019re approaching a crossing, slow down and be prepared
+          to stop. Reduce distractions, roll down your window so that you can listen
+          for oncoming trains, and look in both directions before proceeding. "
+        timeOnScreen: 3
+    mainClip: {fileID: 32900000, guid: 69bdadb4cf688204faa6c434f71c6c77, type: 3}
     choices:
-    - ChoiceText: "See what could have happened if you\u2019d made a\r\ndifferent
-        choice:"
-      ChoiceClips: 1
-    - ChoiceText: main menu
+    - ChoiceText: "Click here to see what could have happened if you\u2019d made a
+        different choice"
+      ChoiceClips: 0
+    - ChoiceText: Click Here to start Experience again
       ChoiceClips: -1

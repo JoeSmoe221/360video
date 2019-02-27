@@ -8,6 +8,7 @@ public class ButtonFade : MonoBehaviour {
     public Image image;
     public Text text;
     private float alpha = 1;
+    public bool justText = false;
     public float getAlpha()
     {
         return alpha;
@@ -18,7 +19,8 @@ public class ButtonFade : MonoBehaviour {
         if(text!= null && image != null)
         {
             text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(0, buttonAlpha, alpha));
+            if(!justText)
+                image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(0, buttonAlpha, alpha));
         }
        
     }
