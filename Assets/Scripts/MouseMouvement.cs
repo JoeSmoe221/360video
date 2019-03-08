@@ -33,6 +33,11 @@ public class MouseMouvement : MonoBehaviour
         if (ClickDrag == false || Input.GetMouseButton(0))
             LookRotation( this.transform, Camera.main.transform);
     }
+    public void OverwriteRotation(float Yrot)
+    {
+        this.transform.localRotation = Quaternion.Euler(0f, Yrot, 0f);
+        m_CharacterTargetRot = this.transform.localRotation;
+    }
     public void LookRotation(Transform character, Transform camera)
     {
         if (Time.timeScale != 0)

@@ -11,7 +11,10 @@ public class VideoEventManager : MonoBehaviour {
     private Transform camera;
     [SerializeField]
     private Transform menu;
-
+    [SerializeField]
+    private Transform MainLogo;
+    [SerializeField]
+    private GameObject QuitButton;
     [SerializeField]
     private Text MessageField;
 
@@ -20,7 +23,7 @@ public class VideoEventManager : MonoBehaviour {
     private VideoPlayer videoPlayer;
     private VideoData.Video currentVideo;
     private Transform buttonHolder;
-[Header("change data for different experieces")]
+    [Header("change data for different experieces")]
     [SerializeField]
     private VideoData[] videoData;
     private VideoData currentVideoData;
@@ -31,18 +34,44 @@ public class VideoEventManager : MonoBehaviour {
     public mode currentMode;
     // Use this for initialization
     public UnityEvent OnVideoDoneEvent;
-	void Start () {
+
+    [Header("debug")]
+    public float currentTime = 0;
+    public float TimeLeft = 0;
+    public float totalTime = 0;
+
+    void Start ()
+    {
         videoPlayer = GameObject.FindObjectOfType<VideoPlayer>();
         buttonHolder = GameObject.FindObjectOfType<ButtonHolder>().transform;
-     
+        RenderSettings.skybox.SetFloat("_Exposure", 0);
+        QuitButton.GetComponent<Button>().onClick.AddListener(delegate
+        {
+
+           Application.Quit();
+
+        });
+        
         ShowMainMenu();
 
     }
     public void ShowMainMenu()
     {
+        currentVideo = null;
         MessageField.transform.parent.gameObject.SetActive(false);
         MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+        if (RenderSettings.skybox.GetFloat("_Exposure") != 0)
+        {
+            StartCoroutine(fadeOut(FadeTime));
 
+        }
+
+        if (currentMode == mode.Pc)
+        {
+            QuitButton.SetActive(true);
+        }
+        
+        MainLogo.gameObject.SetActive(true);
         prepareMenu();
         foreach (VideoData v in videoData)
         {
@@ -57,26 +86,28 @@ public class VideoEventManager : MonoBehaviour {
             // Debug.Log(i);
             button.onClick.AddListener(delegate
             {
-
+                //StartCoroutine(fadeIn(FadeTime));
+                QuitButton.SetActive(false);
+                MainLogo.gameObject.SetActive(false);
                 StartVideo(v);
 
             });
         }
-        Button button2 = Instantiate(ButtonPrefab, buttonHolder).GetComponent<Button>();
-        Text tt = button2.GetComponentInChildren<Text>();
-        tt.text = "quit";
-        button2.GetComponent<ButtonFade>().SetAlpha(1);
-        if (currentMode == mode.Pc)
-        {
-            button2.GetComponent<ButtonGaze>().enabled = false;
-        }
-        // Debug.Log(i);
-        button2.onClick.AddListener(delegate
-        {
+        //Button button2 = Instantiate(ButtonPrefab, buttonHolder).GetComponent<Button>();
+        //Text tt = button2.GetComponentInChildren<Text>();
+        //tt.text = "quit";
+        //button2.GetComponent<ButtonFade>().SetAlpha(1);
+        //if (currentMode == mode.Pc)
+        //{
+        //    button2.GetComponent<ButtonGaze>().enabled = false;
+        //}
+        //// Debug.Log(i);
+        //button2.onClick.AddListener(delegate
+        //{
 
-            Application.Quit();
+        //    Application.Quit();
 
-        });
+        //});
     }
     /// <summary>
     /// prepares the video player call backs
@@ -94,6 +125,19 @@ public class VideoEventManager : MonoBehaviour {
         videoPlayer.loopPointReached += OnVideoDone;
         videoPlayer.playOnAwake = false;
         videoPlayer.Play();
+        MouseMouvement m = FindObjectOfType<MouseMouvement>();
+
+        if(m != null)
+        {
+
+            m.OverwriteRotation(currentVideo.YRot);
+        }
+        if (RenderSettings.skybox.GetFloat("_Exposure") != 1)
+        {
+            StartCoroutine(fadeIn(FadeTime));
+
+        }
+
         prepareMenu();
 
     
@@ -310,9 +354,14 @@ public class VideoEventManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-      //  Debug.Log(videoPlayer.time);
-      
-
+        //  Debug.Log(videoPlayer.time);
+        if (currentVideo != null)
+        {
+            currentTime = (float)videoPlayer.time;
+            totalTime = (float)videoPlayer.clip.length;
+            TimeLeft = totalTime - currentTime;
+        }
+     
         if (currentVideo != null && currentVideo.Message.messages.Length > 0 && currentMessageIndex < currentVideo.Message.messages.Length)
         {
             

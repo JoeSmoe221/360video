@@ -28,6 +28,8 @@ public class VideoData : ScriptableObject {
     [System.Serializable]
     public class Video
     {
+        public string name;
+        public float YRot = 0;
         public MessageHolder Message;
         public VideoClip mainClip;
 
