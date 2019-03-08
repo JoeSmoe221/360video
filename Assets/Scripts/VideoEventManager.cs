@@ -34,13 +34,15 @@ public class VideoEventManager : MonoBehaviour {
 	void Start () {
         videoPlayer = GameObject.FindObjectOfType<VideoPlayer>();
         buttonHolder = GameObject.FindObjectOfType<ButtonHolder>().transform;
-        MessageField.transform.parent.gameObject.SetActive(false);
-        MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+     
         ShowMainMenu();
 
     }
     public void ShowMainMenu()
     {
+        MessageField.transform.parent.gameObject.SetActive(false);
+        MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+
         prepareMenu();
         foreach (VideoData v in videoData)
         {

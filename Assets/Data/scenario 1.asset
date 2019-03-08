@@ -38,7 +38,7 @@ MonoBehaviour:
           traffic is backed up, you knew you would probably get stuck on the tracks.
           \r\n"
         timeOnScreen: 3
-    mainClip: {fileID: 32900000, guid: 69bdadb4cf688204faa6c434f71c6c77, type: 3}
+    mainClip: {fileID: 32900000, guid: 5d481aa422e58a64d9dd8695d81d5101, type: 3}
     choices:
     - ChoiceText: "See what could have happened if you\u2019d made a different choice"
       ChoiceClips: 1
