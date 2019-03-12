@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
-  m_Name: scenario 2
+  m_Name: Scenario 2
   m_EditorClassIdentifier: 
   video:
   - name: 
@@ -34,15 +34,12 @@ MonoBehaviour:
       - MessageText: ' You were also distracted by your passengers and the music in
           your vehicle. Plus you were driving too fast at night and in bad weather.'
         timeOnScreen: 6
-      - MessageText: "See what could have happened if you\u2019d made a different
-          choice\r\n"
-        timeOnScreen: 2
     mainClip: {fileID: 32900000, guid: cd8212f64b35dd6459f11e97b559900f, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice"
+        different choice."
       ChoiceClips: 0
-    - ChoiceText: Click Here to start Experience again
+    - ChoiceText: Click Here to start Experience again.
       ChoiceClips: -1
   - name: 
     YRot: 0
@@ -64,7 +61,7 @@ MonoBehaviour:
     mainClip: {fileID: 32900000, guid: 69bdadb4cf688204faa6c434f71c6c77, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice"
+        different choice."
       ChoiceClips: 0
-    - ChoiceText: Click Here to start Experience again
+    - ChoiceText: Click Here to start Experience again.
       ChoiceClips: -1

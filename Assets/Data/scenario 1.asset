@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
-  m_Name: scenario 1
+  m_Name: Scenario 1
   m_EditorClassIdentifier: 
   video:
   - name: DriveUp
@@ -46,9 +46,9 @@ MonoBehaviour:
         timeOnScreen: 10
     mainClip: {fileID: 32900000, guid: 5d481aa422e58a64d9dd8695d81d5101, type: 3}
     choices:
-    - ChoiceText: "See what could have happened if you\u2019d made a different choice"
+    - ChoiceText: "See what could have happened if you\u2019d made a different choice."
       ChoiceClips: 1
-    - ChoiceText: Click Here to start Experience again
+    - ChoiceText: Click Here to start Experience again.
       ChoiceClips: -1
   - name: Reverse
     YRot: 116.4
@@ -60,7 +60,7 @@ MonoBehaviour:
     mainClip: {fileID: 32900000, guid: 3f396ee78e62cc247adb2d5d5db70325, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice"
+        different choice."
       ChoiceClips: 1
     - ChoiceText: Click here to see what would've happened if you waited behind the
         stop line.
@@ -83,7 +83,7 @@ MonoBehaviour:
     mainClip: {fileID: 32900000, guid: 89e8c6a47d18c8e448718a06fa3dc24e, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice"
+        different choice."
       ChoiceClips: 1
     - ChoiceText: Click here to see what would've happened if you waited behind the
         stop line.
@@ -97,18 +97,18 @@ MonoBehaviour:
       - MessageText: "Not the best choice, but better than staying put. If your vehicle
           gets stuck on the tracks, get yourself and your passengers out immediately
           and move as far away from the tracks as possible to ensure you won\u2019t
-          be hit by any debris from a train-vehicle collision"
+          be hit by any debris from a train-vehicle collision."
         timeOnScreen: 8
       - MessageText: Of course, the better choice would have been not to have moved
-          into the crossing in the first place
+          into the crossing in the first place.
         timeOnScreen: 6
     mainClip: {fileID: 32900000, guid: a70d13d2c36eed74fa9207d31cafaade, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice"
+        different choice."
       ChoiceClips: 1
     - ChoiceText: Click here to see what would've happened if you waited behind the
         stop line.
       ChoiceClips: 2
-    - ChoiceText: Click Here to start Experience again
+    - ChoiceText: Click Here to start Experience again.
       ChoiceClips: -1
