@@ -22,7 +22,13 @@ public class VideoEventManager : MonoBehaviour {
     private Transform ButtonPrefab;
     private VideoPlayer videoPlayer;
     private VideoData.Video currentVideo;
+
+    [SerializeField]
     private Transform buttonHolder;
+
+    [SerializeField]
+    private Transform buttonHolderMenu;
+
     [Header("change data for different experieces")]
     [SerializeField]
     private VideoData[] videoData;
@@ -43,7 +49,7 @@ public class VideoEventManager : MonoBehaviour {
     void Start ()
     {
         videoPlayer = GameObject.FindObjectOfType<VideoPlayer>();
-        buttonHolder = GameObject.FindObjectOfType<ButtonHolder>().transform;
+        //buttonHolder = GameObject.FindObjectOfType<ButtonHolder>().transform;
         RenderSettings.skybox.SetFloat("_Exposure", 0);
         QuitButton.GetComponent<Button>().onClick.AddListener(delegate
         {
@@ -75,7 +81,7 @@ public class VideoEventManager : MonoBehaviour {
         prepareMenu();
         foreach (VideoData v in videoData)
         {
-            Button button = Instantiate(ButtonPrefab, buttonHolder).GetComponent<Button>();
+            Button button = Instantiate(ButtonPrefab, buttonHolderMenu).GetComponent<Button>();
             Text t = button.GetComponentInChildren<Text>();
             t.text = v.name;
             button.GetComponent<ButtonFade>().SetAlpha(1);
@@ -161,6 +167,10 @@ public class VideoEventManager : MonoBehaviour {
         for (int i  = 0; i < buttonHolder.childCount; i++)
         {
             Destroy(buttonHolder.GetChild(i).gameObject);
+        }
+        for (int i = 0; i < buttonHolderMenu.childCount; i++)
+        {
+            Destroy(buttonHolderMenu.GetChild(i).gameObject);
         }
     }
     void prepareMenu()
