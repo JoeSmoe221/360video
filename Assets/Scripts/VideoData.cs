@@ -29,9 +29,14 @@ public class VideoData : ScriptableObject {
     public class Video
     {
         public string name;
-        public float YRot = 0;
-        public MessageHolder Message;
         public VideoClip mainClip;
+   
+        public float YRot = 0;
+        [Space]
+
+        public MessageHolder Message;
+      
+        [Space]
 
         public Choices[] choices;
     }
