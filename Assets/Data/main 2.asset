@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,23 +12,59 @@ MonoBehaviour:
   m_Name: main 2
   m_EditorClassIdentifier: 
   video:
-  - mainClip: {fileID: 32900000, guid: f332533504a395342bca4f3565bc8cea, type: 3}
+  - name: 
+    mainClip: {fileID: 32900000, guid: f332533504a395342bca4f3565bc8cea, type: 3}
+    YRot: 0
+    Message:
+      messages: []
     choices:
     - ChoiceText: Test your brakes?
       ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: "Keep going. The gates aren\u2019t down and you\u2019ll have more
         than enough time to stop. "
       ChoiceClips: 2
-  - mainClip: {fileID: 32900000, guid: 55019ec54088baa42a4c271831adf6c3, type: 3}
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: 
+    mainClip: {fileID: 32900000, guid: 55019ec54088baa42a4c271831adf6c3, type: 3}
+    YRot: 0
+    Message:
+      messages: []
     choices:
     - ChoiceText: "Apply your emergency brake? It\u2019s not an emergency \u2013 why
         would you? "
       ChoiceClips: 3
-  - mainClip: {fileID: 32900000, guid: 5617450dc4d242844ba9e0467d1ac180, type: 3}
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: 
+    mainClip: {fileID: 32900000, guid: 5617450dc4d242844ba9e0467d1ac180, type: 3}
+    YRot: 0
+    Message:
+      messages: []
     choices:
     - ChoiceText: "See what could have happened if you\u2019d made a different choice"
       ChoiceClips: 1
-  - mainClip: {fileID: 32900000, guid: 62a9ece834f32d24ebab25bcddc43fa0, type: 3}
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: 
+    mainClip: {fileID: 32900000, guid: 62a9ece834f32d24ebab25bcddc43fa0, type: 3}
+    YRot: 0
+    Message:
+      messages: []
     choices:
     - ChoiceText: back to begening
       ChoiceClips: 0
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider

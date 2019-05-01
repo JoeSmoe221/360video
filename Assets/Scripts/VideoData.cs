@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
-
 [CreateAssetMenu]
 public class VideoData : ScriptableObject {
 
     [System.Serializable]
     public class Choices
     {
-        [TextArea(3, 20)]
+      //  [TextArea(3, 20)]
         public string ChoiceText;
+
         public int ChoiceClips;
+       public string[] options = { "Rigidbody", "Box Collider", "Sphere Collider" };
+
     }
     [System.Serializable]
     public class Message
@@ -25,6 +27,7 @@ public class VideoData : ScriptableObject {
     {
         public Message[] messages;
     }
+
     [System.Serializable]
     public class Video
     {
@@ -36,12 +39,11 @@ public class VideoData : ScriptableObject {
 
         public MessageHolder Message;
       
-        [Space]
-
+        [Space]  
         public Choices[] choices;
     }
-
+  //  [ReorderableList]
     public Video[] video;
 
-
+   
 }

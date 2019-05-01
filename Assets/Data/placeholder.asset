@@ -12,18 +12,31 @@ MonoBehaviour:
   m_Name: placeholder
   m_EditorClassIdentifier: 
   video:
-  - name: 
+  - name: df
     mainClip: {fileID: 32900000, guid: 9cfd357f65beb344c90b9ac76e713146, type: 3}
     YRot: 0
     Message:
-      messages: []
+      messages:
+      - MessageText: 
+        timeOnScreen: 0
+      - MessageText: 
+        timeOnScreen: 0
     choices:
-    - ChoiceText: Test your brakes?
-      ChoiceClips: 1
-    - ChoiceText: "Keep going. The gates aren\u2019t down and you\u2019ll have more
-        than enough time to stop. "
+    - ChoiceText: "Smart move. You know the length of your vehicle, and because traffic
+        is backed up, you knew you would probably get stuck on the tracks. \r"
       ChoiceClips: 2
-  - name: 
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: "Keep going. The gates aren\u2019t down and you\u2019ll have more
+        than enough time to stop."
+      ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: df
     mainClip: {fileID: 32900000, guid: da5333a9a67e73f46ab0fe680214fdf8, type: 3}
     YRot: 0
     Message:
@@ -32,7 +45,11 @@ MonoBehaviour:
     - ChoiceText: "Apply your emergency brake? It\u2019s not an emergency \u2013 why
         would you? "
       ChoiceClips: 3
-  - name: 
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: fsdf
     mainClip: {fileID: 32900000, guid: 89dafbf68bcf7e94d8611c410787d5b1, type: 3}
     YRot: 0
     Message:
@@ -40,7 +57,11 @@ MonoBehaviour:
     choices:
     - ChoiceText: "See what could have happened if you\u2019d made a different choice"
       ChoiceClips: 1
-  - name: 
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: ss
     mainClip: {fileID: 32900000, guid: ddcd2ac7bd6c92b44bc526373976759d, type: 3}
     YRot: 0
     Message:
@@ -48,11 +69,19 @@ MonoBehaviour:
     choices:
     - ChoiceText: back to begening
       ChoiceClips: 0
-  - name: 
-    mainClip: {fileID: 32900000, guid: ddcd2ac7bd6c92b44bc526373976759d, type: 3}
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: tet
+    mainClip: {fileID: 32900000, guid: 7d1c2153d1f2df140b9e8a5cd5ac8031, type: 3}
     YRot: 0
     Message:
       messages: []
     choices:
     - ChoiceText: back to begening
-      ChoiceClips: 0
+      ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider

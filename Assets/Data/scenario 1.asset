@@ -9,34 +9,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
-  m_Name: Scenario 1
+  m_Name: scenario 1
   m_EditorClassIdentifier: 
   video:
   - name: DriveUp
+    mainClip: {fileID: 32900000, guid: b06ab2168c59b584a920c00987b18140, type: 3}
     YRot: 90
     Message:
       messages: []
-    mainClip: {fileID: 32900000, guid: b06ab2168c59b584a920c00987b18140, type: 3}
     choices:
     - ChoiceText: Proceed through the crossing?
       ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Or wait behind the gate?
       ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
   - name: at Gate stall
+    mainClip: {fileID: 32900000, guid: 7f3d2e90cef7d744fa7caaa54c3c2149, type: 3}
     YRot: 90
     Message:
       messages:
       - MessageText: "A train is coming! \r"
         timeOnScreen: 3
-    mainClip: {fileID: 32900000, guid: 7f3d2e90cef7d744fa7caaa54c3c2149, type: 3}
     choices:
     - ChoiceText: Try to reverse off the tracks?
       ChoiceClips: 3
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Drive forward and try to make it to the other side?
       ChoiceClips: 4
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Get out of the vehicle and run?
       ChoiceClips: 5
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
   - name: Wait Behind
+    mainClip: {fileID: 32900000, guid: 5d481aa422e58a64d9dd8695d81d5101, type: 3}
     YRot: 0
     Message:
       messages:
@@ -44,30 +65,50 @@ MonoBehaviour:
           traffic is backed up, you knew you would probably get stuck on the tracks.
           \r\n"
         timeOnScreen: 10
-    mainClip: {fileID: 32900000, guid: 5d481aa422e58a64d9dd8695d81d5101, type: 3}
     choices:
     - ChoiceText: "See what could have happened if you\u2019d made a different choice."
       ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click Here to start Experience again.
       ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
   - name: Reverse
+    mainClip: {fileID: 32900000, guid: 3f396ee78e62cc247adb2d5d5db70325, type: 3}
     YRot: 116.4
     Message:
       messages:
       - MessageText: "A deadly choice. The time you wasted putting your vehicle in
           reverse meant the difference between life and death. \r"
         timeOnScreen: 13
-    mainClip: {fileID: 32900000, guid: 3f396ee78e62cc247adb2d5d5db70325, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
         different choice."
       ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click here to see what would've happened if you waited behind the
         stop line.
       ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click Here to start Experience again
       ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
   - name: Forward
+    mainClip: {fileID: 32900000, guid: 89e8c6a47d18c8e448718a06fa3dc24e, type: 3}
     YRot: 60
     Message:
       messages:
@@ -80,17 +121,29 @@ MonoBehaviour:
           the tracks and avoided a collision with a train. A better choice would have
           been not to have moved into the crossing in the first place.\r"
         timeOnScreen: 6
-    mainClip: {fileID: 32900000, guid: 89e8c6a47d18c8e448718a06fa3dc24e, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
         different choice."
       ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click here to see what would've happened if you waited behind the
         stop line.
       ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click Here to start Experience again
       ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
   - name: 'Run '
+    mainClip: {fileID: 32900000, guid: a70d13d2c36eed74fa9207d31cafaade, type: 3}
     YRot: 0
     Message:
       messages:
@@ -102,13 +155,24 @@ MonoBehaviour:
       - MessageText: Of course, the better choice would have been not to have moved
           into the crossing in the first place.
         timeOnScreen: 6
-    mainClip: {fileID: 32900000, guid: a70d13d2c36eed74fa9207d31cafaade, type: 3}
     choices:
     - ChoiceText: "Click here to see what could have happened if you\u2019d made a
         different choice."
       ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click here to see what would've happened if you waited behind the
         stop line.
       ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
     - ChoiceText: Click Here to start Experience again.
       ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider

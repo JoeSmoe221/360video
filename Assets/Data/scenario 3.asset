@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
+  m_Name: scenario 3
+  m_EditorClassIdentifier: 
+  video:
+  - name: start
+    mainClip: {fileID: 32900000, guid: 398da1d2e2bd2dc40b2558713d88191a, type: 3}
+    YRot: 0
+    Message:
+      messages: []
+    choices:
+    - ChoiceText: option 1
+      ChoiceClips: 1
+      options: []
+    - ChoiceText: option 2
+      ChoiceClips: 2
+      options: []
+    - ChoiceText: main menu
+      ChoiceClips: -1
+      options: []
+    - ChoiceText: start
+      ChoiceClips: 0
+      options: []
+  - name: option 1
+    mainClip: {fileID: 0}
+    YRot: 0
+    Message:
+      messages: []
+    choices: []
+  - name: optiion 2
+    mainClip: {fileID: 0}
+    YRot: 0
+    Message:
+      messages: []
+    choices: []
