@@ -19,7 +19,9 @@ public class VideoEventManager : MonoBehaviour {
     private Text MessageField;
 
     [SerializeField]
-    private Transform ButtonPrefab;
+    private Transform InAppButtonPrefab;
+    [SerializeField]
+    private Transform MenuButtonPrefab;
     private VideoPlayer videoPlayer;
     private VideoData.Video currentVideo;
 
@@ -41,6 +43,7 @@ public class VideoEventManager : MonoBehaviour {
     // Use this for initialization
     public UnityEvent OnVideoDoneEvent;
 
+    public bool DontRotateOption = true;
     [Header("debug")]
     public float currentTime = 0;
     public float TimeLeft = 0;
@@ -81,7 +84,7 @@ public class VideoEventManager : MonoBehaviour {
         prepareMenu();
         foreach (VideoData v in videoData)
         {
-            Button button = Instantiate(ButtonPrefab, buttonHolderMenu).GetComponent<Button>();
+            Button button = Instantiate(MenuButtonPrefab, buttonHolderMenu).GetComponent<Button>();
             Text t = button.GetComponentInChildren<Text>();
             t.text = v.name;
             button.GetComponent<ButtonFade>().SetAlpha(1);
@@ -115,6 +118,8 @@ public class VideoEventManager : MonoBehaviour {
 
         //});
     }
+
+    
     /// <summary>
     /// prepares the video player call backs
     /// 
@@ -130,10 +135,24 @@ public class VideoEventManager : MonoBehaviour {
         videoPlayer.clip = currentVideo.mainClip;
         videoPlayer.loopPointReached += OnVideoDone;
         videoPlayer.playOnAwake = false;
+
+        videoPlayer.Prepare();
+
+        videoPlayer.prepareCompleted += OnVideoPrepared;
+        //Play();
+
+
+        prepareMenu();
+
+    
+    }
+    public void OnVideoPrepared(VideoPlayer vp)
+    {
         videoPlayer.Play();
+
         MouseMouvement m = FindObjectOfType<MouseMouvement>();
 
-        if(m != null)
+        if (m != null)
         {
 
             m.OverwriteRotation(currentVideo.YRot);
@@ -143,11 +162,8 @@ public class VideoEventManager : MonoBehaviour {
             StartCoroutine(fadeIn(FadeTime));
 
         }
-
-        prepareMenu();
-
-    
     }
+
     public void OnDisable()
     {
         RenderSettings.skybox.SetFloat("_Saturation", 1);
@@ -190,7 +206,7 @@ public class VideoEventManager : MonoBehaviour {
         //  for (int i = 0; i < currentVideo.choices.ChoiceClips.Length; i++)
         foreach (VideoData.Choices c in currentVideo.choices)
         {
-            Button button = Instantiate(ButtonPrefab, buttonHolder).GetComponent<Button>() ;
+            Button button = Instantiate(InAppButtonPrefab, buttonHolder).GetComponent<Button>() ;
             Text t = button.GetComponentInChildren<Text>();
             t.text = c.ChoiceText;
             button.GetComponent<ButtonFade>().SetAlpha(0);
