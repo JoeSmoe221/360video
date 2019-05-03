@@ -13,6 +13,7 @@ public class ButtonGaze : MonoBehaviour {
         GazeTimer = 0;
 
         gaze = true;
+      //  Debug.Log("OnStartGaze");
     }
     public void OnGaze()
     {
