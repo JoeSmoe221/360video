@@ -18,7 +18,7 @@ public class MouseMouvement : MonoBehaviour
     private Quaternion m_CharacterTargetRot;
     private Quaternion m_CameraTargetRot;
     private bool m_cursorIsLocked = true;
-
+    private VideoEventManager video;
     public void Init(Transform character, Transform camera)
     {
         m_CharacterTargetRot = character.localRotation;
@@ -27,11 +27,16 @@ public class MouseMouvement : MonoBehaviour
     public void Start()
     {
         Init(this.transform, Camera.main.transform);
+        video = FindObjectOfType<VideoEventManager>();
     }
     public void Update()
     {
-        if (ClickDrag == false || Input.GetMouseButton(0))
-            LookRotation( this.transform, Camera.main.transform);
+        if(video.currentMode == VideoEventManager.mode.Pc)
+        {
+            if (ClickDrag == false || Input.GetMouseButton(0))
+                LookRotation( this.transform, Camera.main.transform);
+        }
+       
     }
     public void OverwriteRotation(float Yrot)
     {
