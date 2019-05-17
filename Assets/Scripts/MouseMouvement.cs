@@ -40,7 +40,17 @@ public class MouseMouvement : MonoBehaviour
     }
     public void OverwriteRotation(float Yrot)
     {
-        this.transform.localRotation = Quaternion.Euler(0f, Yrot, 0f);
+        if(transform.parent != null)
+        {
+            this.transform.parent.localRotation = Quaternion.Euler(0f, Yrot, 0f);
+
+        }
+        else
+        {
+            this.transform.localRotation = Quaternion.Euler(0f, Yrot, 0f);
+
+
+        }
         m_CharacterTargetRot = this.transform.localRotation;
     }
     public void LookRotation(Transform character, Transform camera)

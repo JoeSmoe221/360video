@@ -4,17 +4,18 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
-  m_Name: scenario 2
+  m_Name: SCENE 2
   m_EditorClassIdentifier: 
   video:
-  - name: 
-    mainClip: {fileID: 32900000, guid: 6d731b365daea3b409a5696863daf3e0, type: 3}
-    YRot: 87
+  - name: Drive up
+    mainClip: {fileID: 32900000, guid: c8063ac596773f64aa91e62d46bd790c, type: 3}
+    YRot: 90
     Message:
       messages:
       - MessageText: "Was that a sign? \r"
@@ -32,34 +33,34 @@ MonoBehaviour:
       - Rigidbody
       - Box Collider
       - Sphere Collider
-  - name: 
-    mainClip: {fileID: 32900000, guid: cd8212f64b35dd6459f11e97b559900f, type: 3}
-    YRot: 0
+  - name: Crash
+    mainClip: {fileID: 32900000, guid: f29cdf77ee7ebfc4581832b996bc9091, type: 3}
+    YRot: 90
     Message:
       messages:
       - MessageText: "A deadly choice. You assumed that trains run on a set schedule
           \u2014 you were dead wrong."
         timeOnScreen: 6
-      - MessageText: ' You were also distracted by your passengers and the music in
-          your vehicle. Plus you were driving too fast at night and in bad weather.'
+      - MessageText: You were also distracted by your passengers and the music in
+          your vehicle. Plus, you were driving too fast at night and in bad weather.
         timeOnScreen: 6
     choices:
-    - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice."
+    - ChoiceText: "Click here to see what would've happened if you\u2019d made a different
+        choice."
       ChoiceClips: 0
       options:
       - Rigidbody
       - Box Collider
       - Sphere Collider
-    - ChoiceText: Click Here to start Experience again.
+    - ChoiceText: Click here to start experience again.
       ChoiceClips: -1
       options:
       - Rigidbody
       - Box Collider
       - Sphere Collider
-  - name: 
-    mainClip: {fileID: 32900000, guid: 69bdadb4cf688204faa6c434f71c6c77, type: 3}
-    YRot: 0
+  - name: Stop
+    mainClip: {fileID: 32900000, guid: a58a15fbbd929b5448157f31f1859b22, type: 3}
+    YRot: 90
     Message:
       messages:
       - MessageText: "Smart move. You can\u2019t always see or hear a train coming
@@ -76,14 +77,14 @@ MonoBehaviour:
           for oncoming trains, and look in both directions before proceeding. "
         timeOnScreen: 8
     choices:
-    - ChoiceText: "Click here to see what could have happened if you\u2019d made a
-        different choice."
+    - ChoiceText: "Click here to see what would've happened if you\u2019d made a different
+        choice."
       ChoiceClips: 0
       options:
       - Rigidbody
       - Box Collider
       - Sphere Collider
-    - ChoiceText: Click Here to start Experience again.
+    - ChoiceText: Click here to start experience again.
       ChoiceClips: -1
       options:
       - Rigidbody

@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef74d0784a337094c9b23f2aa92cc811, type: 3}
+  m_Name: SCENE 1
+  m_EditorClassIdentifier: 
+  video:
+  - name: DriveUp
+    mainClip: {fileID: 32900000, guid: 055d238b39b7ea047ad014af100bb37b, type: 3}
+    YRot: 90
+    Message:
+      messages: []
+    choices:
+    - ChoiceText: Proceed through the crossing?
+      ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Or wait behind the stop line?
+      ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: at Gate stall
+    mainClip: {fileID: 32900000, guid: caa7fdebe9a105b45806d05c8ac28caf, type: 3}
+    YRot: 90
+    Message:
+      messages:
+      - MessageText: "A train is coming! \r"
+        timeOnScreen: 3
+    choices:
+    - ChoiceText: Try to reverse off the tracks?
+      ChoiceClips: 3
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Drive forward and try to make it to the other side?
+      ChoiceClips: 4
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Get out of the vehicle and run?
+      ChoiceClips: 5
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: Wait Behind
+    mainClip: {fileID: 32900000, guid: fadd3054ad5a97e43a35b896ab26bc9e, type: 3}
+    YRot: 90
+    Message:
+      messages:
+      - MessageText: "Smart move. You know the length of your vehicle, and because
+          traffic is backed up, you knew you would probably get stuck on the tracks.
+          \r\n"
+        timeOnScreen: 10
+    choices:
+    - ChoiceText: "See what would've happened if you\u2019d made a different choice."
+      ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to start experience again.
+      ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: Reverse
+    mainClip: {fileID: 32900000, guid: 4ddcfce6d7e00b9418d9f332734151bd, type: 3}
+    YRot: 90
+    Message:
+      messages:
+      - MessageText: "A deadly choice. The time you wasted putting your vehicle in
+          reverse meant the difference between life and death. \r"
+        timeOnScreen: 13
+    choices:
+    - ChoiceText: "Click here to see what would've happened if you\u2019d made a different
+        choice."
+      ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to see what would've happened if you waited behind the
+        stop line.
+      ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to start experience again.
+      ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: Forward
+    mainClip: {fileID: 32900000, guid: 2f133439b4afd7441b0d135d1f9830b1, type: 3}
+    YRot: 90
+    Message:
+      messages:
+      - MessageText: "You\u2019re lucky there was room for your vehicle on the other
+          side of the crossing\u2026You damaged the vehicle in front of you when you
+          squeezed by it, and you also gave the train crew and bystanders quite a
+          scare."
+        timeOnScreen: 8
+      - MessageText: "But you did get yourself, your passengers and your vehicle off
+          the tracks and avoided a collision with a train. A better choice would have
+          been not to have moved into the crossing in the first place.\r"
+        timeOnScreen: 6
+    choices:
+    - ChoiceText: "Click here to see what would've happened if you\u2019d made a different
+        choice."
+      ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to see what would've happened if you waited behind the
+        stop line.
+      ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to start experience again.
+      ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+  - name: 'Run '
+    mainClip: {fileID: 32900000, guid: 1063e0cb4cbb838479107f9e04b8fb22, type: 3}
+    YRot: 90
+    Message:
+      messages:
+      - MessageText: "Not the best choice, but better than staying put. If your vehicle
+          gets stuck on the tracks, get yourself and your passengers out immediately
+          and move as far away from the tracks as possible to ensure you won\u2019t
+          be hit by any debris from a train-vehicle collision."
+        timeOnScreen: 8
+      - MessageText: Of course, the better choice would have been not to have moved
+          into the crossing in the first place.
+        timeOnScreen: 6
+    choices:
+    - ChoiceText: "Click here to see what would've happened if you\u2019d made a different
+        choice."
+      ChoiceClips: 1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to see what would've happened if you waited behind the
+        stop line.
+      ChoiceClips: 2
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider
+    - ChoiceText: Click here to start experience again.
+      ChoiceClips: -1
+      options:
+      - Rigidbody
+      - Box Collider
+      - Sphere Collider

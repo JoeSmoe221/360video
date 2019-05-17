@@ -49,6 +49,7 @@ public class VideoEventManager : MonoBehaviour {
     public float TimeLeft = 0;
     public float totalTime = 0;
 
+    
     void Start ()
     {
         videoPlayer = GameObject.FindObjectOfType<VideoPlayer>();
@@ -64,6 +65,140 @@ public class VideoEventManager : MonoBehaviour {
         ShowMainMenu();
 
     }
+    // Update is called once per frame
+    void Update()
+    {
+        //  Debug.Log(videoPlayer.time);
+        UpdateInAppMessages();
+        if(currentMode == mode.mobile)
+        {
+            if (OVRInput.GetUp(OVRInput.Button.Back))
+            {
+                ShowQuitMenu();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                ShowQuitMenu();
+
+            }
+        }
+     
+
+    }
+
+    private void UpdateInAppMessages()
+    {
+        if (currentVideo != null)
+        {
+            currentTime = (float)videoPlayer.time;
+            totalTime = (float)videoPlayer.clip.length;
+            TimeLeft = totalTime - currentTime;
+        }
+
+        if (currentVideo != null && currentVideo.Message.messages.Length > 0 && currentMessageIndex < currentVideo.Message.messages.Length)
+        {
+
+            if (videoPlayer.time > videoPlayer.clip.length - GetMessageDurationAfterIndex(currentMessageIndex))
+            {
+                if (MessageField.color.a != 1)
+                {
+                    MessageField.transform.parent.GetComponent<ButtonFade>().justText = false;
+                    MessageField.transform.parent.gameObject.SetActive(true);
+                    menu.rotation = Quaternion.Euler(0, camera.rotation.eulerAngles.y, 0);
+
+                }
+                else
+                {
+                    MessageField.transform.parent.GetComponent<ButtonFade>().justText = true;
+
+                }
+                StartCoroutine(FadeInMessageBox(GrayoutTime));
+
+                // Debug.Log("dopio");
+                MessageField.text = currentVideo.Message.messages[currentMessageIndex].MessageText;
+                //if(currentMessageIndex + 1 < currentVideo.Message.messages.Length)
+                currentMessageIndex++;
+
+            }
+        }
+        else
+        {
+            //   MessageField.transform.parent.gameObject.SetActive(false);
+
+        }
+    }
+    [ContextMenu("backbutton test")]
+    public void ShowQuitMenu()
+    {
+        prepareMenu();
+        MessageField.transform.parent.gameObject.SetActive(false);
+        MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+        //back to main button 
+        Button button = Instantiate(InAppButtonPrefab, buttonHolder).GetComponent<Button>();
+        Text t = button.GetComponentInChildren<Text>();
+        t.text = "Resume";
+        button.GetComponent<ButtonFade>().SetAlpha(0);
+        if (currentMode == mode.Pc)
+        {
+            button.GetComponent<ButtonGaze>().enabled = false;
+        }
+        button.onClick.AddListener(delegate
+        {
+            currentMessageIndex = 0;
+            MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+            MessageField.transform.parent.gameObject.SetActive(false);
+            videoPlayer.Play();
+            StartCoroutine(HideOverlay(GrayoutTime));
+            DeleteChildren();
+
+
+        });
+        if(currentVideo == null)
+        {
+
+            Destroy(button.gameObject);
+        }
+        //show quit button
+        button = Instantiate(InAppButtonPrefab, buttonHolder).GetComponent<Button>();
+        t = button.GetComponentInChildren<Text>();
+        t.text = "Main Menu";
+        button.GetComponent<ButtonFade>().SetAlpha(0);
+        if (currentMode == mode.Pc)
+        {
+            button.GetComponent<ButtonGaze>().enabled = false;
+        }
+        button.onClick.AddListener(delegate
+        {
+            currentMessageIndex = 0;
+            MessageField.transform.parent.GetComponent<ButtonFade>().SetAlpha(0);
+            MessageField.transform.parent.gameObject.SetActive(false);
+            ShowMainMenu();
+            StartCoroutine(HideOverlay(GrayoutTime));
+
+        });
+        //show quit button
+        button = Instantiate(InAppButtonPrefab, buttonHolder).GetComponent<Button>();
+        t = button.GetComponentInChildren<Text>();
+        t.text = "Quit";
+        button.GetComponent<ButtonFade>().SetAlpha(0);
+        if (currentMode == mode.Pc)
+        {
+            button.GetComponent<ButtonGaze>().enabled = false;
+        }
+        button.onClick.AddListener(delegate
+        {
+            Application.Quit();
+
+
+        });
+        videoPlayer.Pause();
+        StartCoroutine(ShowOverlay(GrayoutTime));
+        StartCoroutine(FadeInButton(GrayoutTime));
+    }
+
     public void ShowMainMenu()
     {
         currentVideo = null;
@@ -196,7 +331,7 @@ public class VideoEventManager : MonoBehaviour {
 
         DeleteChildren();
     }
-   public VideoData.Video GetVideo(int choice)
+    public VideoData.Video GetVideo(int choice)
     {
         return currentVideoData.video[choice];
     }
@@ -377,50 +512,7 @@ public class VideoEventManager : MonoBehaviour {
     }
 
     public int currentMessageIndex = 0;
-	// Update is called once per frame
-	void Update ()
-    {
-        //  Debug.Log(videoPlayer.time);
-        if (currentVideo != null)
-        {
-            currentTime = (float)videoPlayer.time;
-            totalTime = (float)videoPlayer.clip.length;
-            TimeLeft = totalTime - currentTime;
-        }
-     
-        if (currentVideo != null && currentVideo.Message.messages.Length > 0 && currentMessageIndex < currentVideo.Message.messages.Length)
-        {
-            
-            if(videoPlayer.time > videoPlayer.clip.length - GetMessageDurationAfterIndex(currentMessageIndex))
-            {
-                if (MessageField.color.a  != 1 )
-                {
-                    MessageField.transform.parent.GetComponent<ButtonFade>().justText = false;
-                    MessageField.transform.parent.gameObject.SetActive(true);
-                    menu.rotation = Quaternion.Euler(0, camera.rotation.eulerAngles.y, 0);
-
-                }
-                else
-                {
-                    MessageField.transform.parent.GetComponent<ButtonFade>().justText = true;
-
-                }
-                StartCoroutine(FadeInMessageBox(GrayoutTime));
-
-                // Debug.Log("dopio");
-                MessageField.text = currentVideo.Message.messages[currentMessageIndex].MessageText;
-                //if(currentMessageIndex + 1 < currentVideo.Message.messages.Length)
-                    currentMessageIndex++;
-                
-            }
-        }
-        else
-        {
-         //   MessageField.transform.parent.gameObject.SetActive(false);
-
-        }
-
-    }
+	
     public IEnumerator FadeInMessageBox(float time = 1)
     {
         float elapsedTime = 0;
